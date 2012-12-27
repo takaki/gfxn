@@ -1,11 +1,11 @@
 Gtk FX Notificatioin
 ====================
 
-This program displayed FX (Foreign eXchange) rate in the notification
-area. 
+This program displayed FX (Foreign eXchange) rate in the GNOME/KDE/other
+notification area. 
 
 License
--------
+------
 
     Copyright (C) 2012 TANIGUCHI Takaki <takaki@asis.media-as.org>
 
