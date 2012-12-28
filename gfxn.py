@@ -26,7 +26,7 @@ import urllib
 import csv
 
 NAME = 'GFXN'
-VERSION = '0.4'
+VERSION = '0.5'
 
 class GFXNIcon:
     def __init__(self):
@@ -38,7 +38,7 @@ class GFXNIcon:
 
         self.statusicon = Gtk.StatusIcon.new()
         self.statusicon.connect("popup-menu", self.right_click_event)
-        self.statusicon.set_title("abcABC")
+        self.statusicon.set_title("gfxn")
         self.statusicon.set_tooltip_text(NAME + '\n' + self.currency)
 
         self.update_icon()
@@ -134,7 +134,9 @@ class GFXNIcon:
         crbg.fill()
         
         cr = cairo.Context(image)
-        cr.set_font_size(128)
+        cr.set_font_size(120)
+        cr.select_font_face("monospace", cairo.FONT_SLANT_NORMAL,
+            cairo.FONT_WEIGHT_BOLD)
         cr.set_source_rgb(0,0,0)
         cr.move_to(0,128 - 16)
         cr.show_text("%s" % s1)
