@@ -27,7 +27,7 @@ import urllib
 import csv
 
 NAME = 'GFXN'
-VERSION = '0.2'
+VERSION = '0.3'
 
 class GFXNIcon:
     def __init__(self):
@@ -108,7 +108,7 @@ class GFXNIcon:
         try:
             rate = urllib.urlopen(RATE_URL)
         except IOError:
-            return
+            return True
 
         for i in csv.reader(rate):
             self.currencies.append(i[0])
