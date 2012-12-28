@@ -5,9 +5,8 @@ from gfxn import VERSION
 
 setup(name='gfxn',
     version=VERSION,
-#    packages=find_packages('.'),
+    packages=find_packages(),
     py_modules=['gfxn'],
-#    scripts=['gfxn.py'],
     description='Gtk FX Notification',
     author='TANIGUCHI Takaki',
     author_email='takaki@asis.media-as.org',
@@ -16,10 +15,8 @@ setup(name='gfxn',
 #    install_requires=['gi'],
     entry_points = {
         'gui_scripts' : [
-            'gfxn = gfxn.run',
+            'gfxn = gfxn:run',
         ]
     },
-    package_data = {
-        '': 'icon.png'
-    }
+    data_files = [('/usr/share/icons',  ['gfxn.png'])]
 )

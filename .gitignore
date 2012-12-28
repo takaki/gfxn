@@ -1,2 +1,8 @@
 .ropeproject
 _image
+gfxn.egg-info
+README
+MANIFEST.in
+dist
+build
+*.pyc

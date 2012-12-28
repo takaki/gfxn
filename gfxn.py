@@ -14,8 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-ICON_PATH = 'usd_dollar_money_cash.png'
-ICON_PATH = 'icon.png'
+ICON_PATH = '/usr/share/icons/gfxn.png'
 RATE_URL = "https://fx.click-sec.com/ygmo/rate.csv?client=FxFlashQuoteRIA_2008101"
 
 
@@ -27,7 +26,7 @@ import urllib
 import csv
 
 NAME = 'GFXN'
-VERSION = '0.3'
+VERSION = '0.4'
 
 class GFXNIcon:
     def __init__(self):
