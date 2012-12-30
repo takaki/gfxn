@@ -107,8 +107,11 @@ class GFXNIcon:
         try:
             rate = urllib.urlopen(RATE_URL)
         except IOError:
-            return True
-
+            if e.errno == 'socket error'
+                return True
+            else
+                raise e
+            
         for i in csv.reader(rate):
             self.currencies.append(i[0])
             if i[0] == self.currency:
