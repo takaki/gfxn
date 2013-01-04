@@ -26,14 +26,14 @@ import urllib
 import csv
 
 NAME = 'GFXN'
-VERSION = '0.5'
+VERSION = '0.6'
 
 class GFXNIcon:
     def __init__(self):
 
         self.currencies = []
         self.currency = 'USD/JPY'
-        self.interval = 5
+        self.interval = 3
         self.val = 0
 
         self.statusicon = Gtk.StatusIcon.new()
@@ -107,9 +107,10 @@ class GFXNIcon:
         try:
             rate = urllib.urlopen(RATE_URL)
         except IOError:
-            if e.errno == 'socket error'
+            if e.errno == 'socket error':
+                print('gfxn: socket error')
                 return True
-            else
+            else:
                 raise e
             
         for i in csv.reader(rate):
