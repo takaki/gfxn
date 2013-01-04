@@ -26,7 +26,7 @@ import urllib
 import csv
 
 NAME = 'GFXN'
-VERSION = '0.6'
+VERSION = '0.7'
 
 class GFXNIcon:
     def __init__(self):
@@ -106,7 +106,7 @@ class GFXNIcon:
         self.currencies = []
         try:
             rate = urllib.urlopen(RATE_URL)
-        except IOError:
+        except IOError, e:
             if e.errno == 'socket error':
                 print('gfxn: socket error')
                 return True
