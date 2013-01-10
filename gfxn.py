@@ -26,7 +26,7 @@ import urllib
 import csv
 
 NAME = 'GFXN'
-VERSION = '0.7'
+VERSION = '0.8'
 
 class GFXNIcon:
     def __init__(self):
@@ -35,18 +35,17 @@ class GFXNIcon:
         self.currency = 'USD/JPY'
         self.interval = 3
         self.val = 0
+        self.update_time = ''
 
         self.statusicon = Gtk.StatusIcon.new()
         self.statusicon.connect("popup-menu", self.right_click_event)
-        self.statusicon.set_title("gfxn")
-        self.statusicon.set_tooltip_text(NAME + '\n' + self.currency)
+        self.statusicon.set_title(NAME)
 
         self.update_icon()
         self.taskid = glib.timeout_add(self.interval * 1000, self.update_icon)
 
     def update_currency(self, widget, currency):
         self.currency = currency
-        self.statusicon.set_tooltip_text('fx icon\n' + self.currency)
         self.update_icon()
 
     def update_interval(self, widget, interval):
@@ -117,6 +116,7 @@ class GFXNIcon:
             self.currencies.append(i[0])
             if i[0] == self.currency:
                 val = i[1]
+                self.update_time = i[9]
 
         s1 = val[0:-3]
         s2 = val[-3:]
@@ -128,7 +128,7 @@ class GFXNIcon:
         bg = cairo.ImageSurface(cairo.FORMAT_ARGB32,width, height)
         crbg = cairo.Context(bg)
         if float(val) > self.val:
-            crbg.set_source_rgb(0.8, 1.0, 0.8)
+            crbg.set_source_rgb(0.4, 0.8, 0.4)
         elif float(val) < self.val:
             crbg.set_source_rgb(1.0, 0.8, 0.8)
         else:
@@ -152,6 +152,10 @@ class GFXNIcon:
         pixbuf = Gdk.pixbuf_get_from_surface(bg, 0,0,width,height)
 
         self.statusicon.set_from_pixbuf(pixbuf)
+
+        self.statusicon.set_tooltip_text(NAME + "\n" + 
+                                         self.currency + "\n" +
+                                         self.update_time)
 
         return True
 
