@@ -130,7 +130,7 @@ class GFXNIcon:
         if float(val) > self.val:
             crbg.set_source_rgb(0.4, 0.8, 0.4)
         elif float(val) < self.val:
-            crbg.set_source_rgb(1.0, 0.8, 0.8)
+            crbg.set_source_rgb(0.8, 0.5, 0.5)
         else:
             crbg.set_source_rgb(1,1,1)
         self.val = float(val)
